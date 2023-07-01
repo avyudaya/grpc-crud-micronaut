@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.grpc.books";
+option java_outer_classname = "BookProto";
+option objc_class_prefix = "HLW";
+
+package com.grpc.book;
+
+service BookService {
+  rpc createBook(CreateBookRequest) returns (Book);
+  rpc getBook(GetBookRequest) returns (Book);
+  rpc getAllBooks(GetAllBooksRequest) returns (Books);
+}
+
+message Book {
+  string id = 1;
+  string name = 2;
+  int64 price = 3;
+}
+
+message Books {
+  repeated Book books = 1;
+}
+
+message CreateBookRequest {
+  string name = 1;
+  int64 price = 3;
+}
+
+message GetBookRequest {
+  string id = 1;
+}
+
+message GetAllBooksRequest {}

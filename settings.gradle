@@ -1,0 +1,4 @@
+
+rootProject.name="grpc-crud"
+include 'protos'
+

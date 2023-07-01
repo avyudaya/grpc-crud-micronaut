@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package com.grpc;
+
+service ProductService {
+  rpc createProduct(Product) returns (Product);
+  rpc getProduct(GetProductRequest) returns (Product);
+  rpc updateProduct(UpdateProductRequest) returns (Product);
+  rpc deleteProduct(DeleteProductRequest) returns (Empty);
+}
+
+message Product {
+  string id = 1;
+  string name = 2;
+  int64 price = 3;
+}
+
+message GetProductRequest {
+  string id = 1;
+}
+
+message UpdateProductRequest {
+  string id = 1;
+  string name = 2;
+  float price = 3;
+}
+
+message DeleteProductRequest {
+  string id = 1;
+}
+
+message Empty {}
